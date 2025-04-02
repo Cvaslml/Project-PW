@@ -20,6 +20,6 @@ python manage.py makemigrations post
 
 
 
-
+09 abril - quiz
 11 abril - parcial
 23 abril - proyecto
