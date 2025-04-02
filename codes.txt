@@ -11,4 +11,4 @@ python manage.py runserver # Le prende candela
 # genera y realiza las migraciones en base de datos de
 nuestros modelos:
 python manage.py makemigrations post
-• python mange.py migrate
+• python manage.py migrate
