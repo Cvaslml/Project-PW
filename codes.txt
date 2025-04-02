@@ -12,3 +12,14 @@ python manage.py runserver # Le prende candela
 nuestros modelos:
 python manage.py makemigrations post
 • python manage.py migrate
+
+
+
+
+
+
+
+
+
+11 abril - parcial
+23 abril - proyecto
