@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
     <link rel="stylesheet" href="{% static 'post/css/base.css' %}">
     {% block extra_head %}
     {% endblock extra_head %}
@@ -13,31 +14,50 @@
 <body>
     <main>
         <header>
-            <h1>Blog --nombre Usuario--</h1>
+            {% if user.is_authenticated %}
+            <h1>Blog {{ user.username }}</h1>
+            {% else %}
+            <h1>Blog Personal</h1>
+            {% endif %}
         </header>
         <nav id="navbar">
             <ul>
                 <li><a href="{% url 'index' %}">Inicio</a></li>
-                <li><a href="{% url 'categorias' %}">Categorías</a></li>
-                <li><a href="{% url 'publicaciones' %}">Publicaciones</a></li>
-                <li><a href="{% url 'perfil' %}">Perfil</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'categorias' %}">Categorías</a></li>
+                    <li><a href="{% url 'publicaciones' %}">Publicaciones</a></li>
+                {% endif %}
+
+                {% if user.is_staff or user.is_superuser %}
+                    <li><a href="{% url 'admin:index' %}">Administración</a></li>
+                {% endif %}
             </ul>
             <div>
-                <a href="#">Iniciar sesión</a>
+                {% if user.is_authenticated %}
+                    <p><a href="#">Perfil</a> | <a class="nav-link" href="#" 
+                        onClick="document.getElementById('logoutform').submit()">
+                        Salir
+                        </a>
+                        <form id="logoutform" method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </p>
+                {% else %}
+                    <a href="{% url 'login' %}">Iniciar Sesión</a>
+                {% endif %}
             </div>
         </nav>
         <section class="page_content">
             {% block content %}
             {% endblock content %}
-
         </section>
         <footer>
             <p>Blog creado por --nombre Usuario--</p>
         </footer>
     </main>
-    {% block extra_js %}
-    {% endblock extra_js %}
-
+    {% block extra_scripts %}
+    {% endblock extra_scripts %}
 </body>
 
 </html>
