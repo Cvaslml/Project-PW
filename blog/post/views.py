@@ -24,7 +24,7 @@ def nueva_publicacion(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)  # No guarda aún en la BD
-            post.author = User.objects.get(id=1)  # Asigna el usuario autenticado
+            post.author = request.user  # Asigna el usuario autenticado
             post.save()  # Guarda en la BD
             return redirect('publicaciones')  # Redirigir después de guardar
     else:
