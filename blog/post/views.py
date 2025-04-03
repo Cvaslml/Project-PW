@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import PostForm
+from django.contrib.auth.models import User  # Importa el modelo User
+from .models import Post  # Importa el modelo post
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
