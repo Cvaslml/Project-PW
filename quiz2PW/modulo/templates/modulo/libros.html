@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Libros</title>
+    <!-- Enlace al archivo CSS específico para la página de libros -->
+    <link rel="stylesheet" href="{% static 'modulo/css/libros.css' %}">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <div class="header-content">
+                <h1>Lista de Libros</h1>
+                <nav class="navigation">
+                    <a href="{% url 'index' %}">Inicio</a>
+                    <a href="{% url 'admin:index' %}">Administración</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Cuerpo principal -->
+        <main>
+            <section class="libros-list">
+                <table class="libros-table">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>ISBN</th>
+                            <th>Categoría</th>
+                            <th>Fecha de Publicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for libro in libros %}
+                            <tr>
+                                <td><a href="{% url 'detalle_libro' libro.id %}" class="libro-link">{{ libro.titulo }}</a></td>
+                                <td>{{ libro.autor }}</td>
+                                <td>{{ libro.ISBN }}</td>
+                                <td>{{ libro.categoria.nombre }}</td>
+                                <td>{{ libro.fecha_publicacion|date:"F d, Y" }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="5" class="no-books">No hay libros registrados.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>&copy; 2025 Proyecto Académico Django. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

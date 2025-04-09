@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Proyecto MPA Django{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'modulo/css/index.css' %}">
+</head>
+<body>
+
+<!-- Encabezado y navegación -->
+<header>
+    <nav>
+        <div class="brand">MPA Django</div>
+        <div class="nav-links">
+            <a href="{% url 'index' %}">Inicio</a>
+            <a href="{% url 'admin:index' %}">Administración</a>
+            <a href="{% url 'lista_libros' %}">Libros</a>  <!-- Enlace a la lista de libros -->
+        </div>
+    </nav>
+</header>
+
+<!-- Contenido principal -->
+<main>
+    {% block content %}
+    <!-- El contenido específico de cada página se inyectará aquí -->
+    {% endblock %}
+</main>
+
+<!-- Pie de página -->
+<footer>
+    &copy; 2025 Proyecto Académico Django. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>

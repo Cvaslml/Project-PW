@@ -1,0 +1,104 @@
+/* Estilos generales para la página de libros */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal de los libros */
+.libros-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de la página de libros */
+.page-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Estilos de la tabla */
+.libros-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.libros-table th,
+.libros-table td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.libros-table th {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.libros-table td {
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+/* Enlace del título del libro */
+.libro-link {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.libro-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para cuando no hay libros en la lista */
+.no-books {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+/* Paginación (si la añades en el futuro) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: #3498db;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.pagination a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+    .libros-table th,
+    .libros-table td {
+        padding: 8px 12px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}
