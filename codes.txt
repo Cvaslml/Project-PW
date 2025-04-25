@@ -13,9 +13,13 @@ nuestros modelos:
 python manage.py makemigrations post
 • python manage.py migrate
 
+Nombre: Taladro Percutor Bosch GSB 13 RE
+Descripción: Taladro percutor de alto rendimiento con motor de 600W, ideal para perforar madera, metal, plástico y mampostería. Diseño compacto y ergonómico para un manejo cómodo. Incluye maletín y accesorios básicos.
+Precio: $89.99
+Cantidad: 25 unidades disponibles
+Categoría: Herramientas Eléctricas
 
-
-
+Excelente taladro, potente y fácil de manejar. Lo usé para instalar estanterías en casa y perforó la pared sin problema. Muy buena relación calidad-precio. ¡Totalmente recomendado!✨😊
 
 
 
